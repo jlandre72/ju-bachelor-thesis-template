@@ -1,0 +1,716 @@
+%%%
+%%% JU BACHELOR THESIS - LATEX TEMPLATE
+%%% Jérôme Landré - Jönköping University - Sweden
+%%% Version 1.6 - 2025-01-08
+%%%
+\documentclass[a4paper, 12pt]{report}
+
+%%%
+%%% PACKAGES
+%%%
+\usepackage[english]{babel} % LANGUAGES
+\selectlanguage{english}
+\usepackage{csquotes} % LANGUAGES
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} % MARGINS
+
+\usepackage{xcolor} % COLORS
+% JU color definitions according to the "graphic manual 2023"
+\definecolor{jupurple}{RGB}{149, 26, 128}
+\definecolor{juyellow}{RGB}{255, 181, 0}
+\definecolor{juturquoise}{RGB}{85, 170, 167}
+\definecolor{jublue}{RGB}{0, 56, 101}
+\definecolor{jugrey}{RGB}{121, 121, 121}
+
+\usepackage{graphicx} % INCLUDE IMAGES
+
+\usepackage{multicol} % MULTICOLUMNS
+\usepackage{anyfontsize} % FONT SIZE
+\usepackage{hyperref} % HYPERLINKS
+\usepackage{listings} % LISTINGS from https://www.overleaf.com/learn/latex/Code_listing
+
+\usepackage{lipsum} % FILLING TEXT LOREM IPSUM
+\usepackage{indentfirst} % INDENT THE FIRST LINE OF ANY TEXT
+
+% COLORS FOR THE CODE
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{orange},
+  keywordstyle=\color{magenta},
+  numberstyle=\footnotesize\color{codegray},
+  stringstyle=\color{codegreen},
+  basicstyle=\ttfamily\normalsize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%%% GLOSSARY
+\usepackage[acronym]{glossaries}
+\makeglossaries
+% ACRONYMS
+\newacronym{os}{OS}{Operating System}
+\newglossaryentry{linux}{
+  name=Linux,
+  description={is a free and open source Operating System}
+}
+% GLOSSARY ENTRIES
+\newglossaryentry{windows}{
+  name=Windows,
+  description={is an Operating System developed by Microsoft Corporation}
+}
+
+%%% FONTS
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+%%% SANS-SERIF FONTS
+%\setmainfont{Cabin}
+
+
+
+%%% SERIF FONTS
+%\setmainfont{Clara}
+%\setmainfont{Alegreya}
+%\setmainfont{BaskervilleF}
+\setmainfont{Crimson}
+
+% ADVANCED GRAPHICS WITHIN LaTeX
+\usepackage{tikz}
+
+%%% BIBLIOGRAPHY
+\usepackage[backend=biber, style=apa, hyperref=true, autocite=inline]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{mybiblio.bib}
+
+%%% TABULAR LINE WIDTHS
+\usepackage{booktabs}
+\newcommand{\mytoprule}{\specialrule{0.1em}{0em}{0em}}
+\newcommand{\mybottomrule}{\specialrule{0.1em}{0em}{0em}}
+  
+
+
+%%% OVERFULL LINES RULE
+\sloppy
+
+%%% CHAPTER TITLE REDESIGNED
+% Redefine the chapter command
+\usepackage{titlesec}
+% Redefine the chapter style
+\titleformat{\chapter}[display]
+{\flushright}{\tikz\node[text=black] {\fontsize{111pt}{8pt}\selectfont\textcolor{jupurple}{\thechapter}};}{0pt}{\flushright\fontsize{36pt}{8pt}\selectfont}
+\titlespacing*{\chapter}{0pt}{10pt}{30pt}
+
+
+
+
+
+
+
+
+%%%-----
+%%%
+%%% BEGIN DOCUMENT
+%%%
+%%%-----
+\begin{document}
+
+
+
+\pagenumbering{arabic} % NUMBERING THE PAGES
+\selectlanguage{english} % NUMBERING THE PAGES
+
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0.2cm plus 1mm minus 1mm}
+
+
+
+\thispagestyle{empty} % no page number on the title page
+
+
+%%%
+%%% TITLE PAGE
+%%%
+{% JU LOGO
+\begin{tikzpicture}[remember picture, overlay]
+  \node[xshift=5.4cm, yshift=-3.4cm] (logo) at (current page.north) {\includegraphics[height=1.4cm]{img/JU_B_sv.png}};
+\end{tikzpicture}
+}
+
+{% TITLE
+\vspace{6cm}
+\parindent=0cm
+\textbf{
+\fontsize{36pt}{48pt}\selectfont 
+A LaTeX template for \\
+bachelor thesis work at JU\\
+% L1liI
+}
+
+  {
+    \vspace{1cm}
+    \fontsize{24pt}{36pt}\selectfont 
+    A professional way to present your research
+  }
+}
+
+{
+  \begin{tikzpicture}[remember picture, overlay,scale=1]
+    %above
+    \node[opacity=0.8, rotate=180, yshift=0.7cm] (rectangle_logo2) at (current page.center) {
+      \includegraphics[width=21cm]{img/wave1.png}
+    };
+    %below
+    \node[opacity=0.4, yshift=-8cm, xscale=-1] (rectangle_logo1) at (current page.center) {
+      \includegraphics[width=21cm]{img/wave1.png}
+    };
+  \end{tikzpicture}
+}
+
+{
+\vfill
+
+
+\textbf{Author(s):} Jérôme LANDRÉ \& Mary POPPINS
+
+\textbf{Main subject area:} Computer Engineering
+
+\textbf{School:} School of Engineering
+
+\textbf{Date:} June 2024
+
+}
+
+
+%%%
+%%% BLANK PAGE
+%%%
+\newpage
+
+{ $\;$ }
+
+%%%
+%%% DISCLAIMER PAGE
+%%%
+\newpage
+
+\vspace*{20cm}
+
+{
+  \parindent=0cm 
+  This final thesis has been carried out at the School of Engineering at Jönköping University within Computer Engineering. The authors are responsible for the presented opinions, conclusions and results.
+  \vspace*{0.5cm}
+}
+
+{
+\textbf {Examiner:} James BOND
+\medskip
+
+\textbf {Supervisor:} Luke SKYWALKER
+\medskip
+
+\textbf {Scope:} 15 Credits
+\medskip
+
+\textbf {Date:} 2024-12-11
+}
+
+%%%
+%%% BLANK PAGE
+%%%
+\newpage
+
+{ $\;$ }
+
+
+%%%
+%%% TABLE OF CONTENTS
+%%%
+\newpage
+\tableofcontents
+
+
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\newpage
+%%% ABSTRACT
+\chapter*{Abstract}
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+
+A clear and well-documented LaTeX document is presented as an example for the bachelor thesis writing process at Jönköping University. This template can be discussed and modified to match the requirements of a thesis at JU.
+
+\vspace{0.6cm}
+{
+
+{\parindent=0cm\Large\textit{\textbf{Keywords:}}}
+
+\vspace{0.3cm}
+LaTeX template, School of Engineering, Jönköping University, Sweden.
+
+}
+
+
+%%%
+%%% ACKNOWLEDGMENTS
+%%%
+\newpage
+\chapter*{Acknowledgments}
+\phantomsection
+\addcontentsline{toc}{chapter}{Acknowledgments}
+
+I thank all my colleagues from the Computer Science and Informatics Department for their patience and their support on using LaTeX in the students' bachelor thesis report.
+
+
+
+%%%
+%%% INTRODUCTION
+%%%
+\chapter{Introduction}
+
+\textcolor{jupurple}{
+The chapter provides a background and a clear motivation for the study and the problem area the study is addressing. Further, the purpose and the research questions are presented. The scope and delimitations of the study are also described. Lastly, the disposition of the thesis is outlined.
+}
+
+\section{Problem Statement}
+
+\textcolor{jupurple}{
+The problem statement aims to provide a more detailed description of the components involved in the problem depicted in the section above. It is important to transform the specific problem, e.g. the specific task from a company, to a broader and more universal or general problem which may be of relevance for a bigger audience, for example other industries or trade sectors. This is done by presenting a chain of reasoning in which the specifics of the task are portrayed as a special case of something more generic.
+Apart from demonstrating a broader need of the specific task it is also important to relate to the “state of the art” research in this area and present the scientific relevance/gap why this has scientific relevance. Use references according to the APA system. This is done appropriately by describing the research front for the area with its in-depth parts. By this reasoning X, standpoints are taken along the way which will lead to a well-argued and traceable specification and funneling of the problem area, whereby the purpose and the research question will follow naturally. 
+Start with a wider perspective and narrow down your descriptions in order to end up in clear and well justified research question(s) and purpose. The reader shall, based on the argumentative problem statement develop a clear understanding for why this is a relevant study to do, the so-called knowledge gap in the existing literature.
+Elaboration of theoretical dimensions in the thesis is then done in the chapter “Theoretical framework”.
+}
+
+\medskip
+If you want to use acronyms, please look at the source code. On a Linux \acrfull{os} computer, using the C programming language, we want to compute the number $\pi$ using the formula:
+
+$$
+\frac{\pi^2}{6} = \sum_{k=1}^{\infty} \frac{1}{k^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \dots
+$$
+
+It is a classic problem of computing but we want to make it parallel for modern multi-core processors. Of course, we will not go to infinity, no time for this\dots
+
+You can reference figures and tables wherever you want using the label and ref instructions. For instance, see table \ref{tab:termsandpi} and figure \ref{fig:htop}, it works!
+
+\section{Purpose and Research Questions}
+
+{\color{jupurple}
+Clearly and concisely state the purpose and the research questions. The purpose defines what will be performed, examined, or compiled as well as its significance. The purpose can be broken down into research questions which you will answer in your report to fulfil the purpose. Your purpose and research questions will set the path in terms of choices of methods, theories, analysis options, \dots Drawing on the problem statement, it is evident that XXX. Further, it is evident that XXX. Consequently, the purpose of this study is: 
+To XXX
+When the reader has arrived at the research questions then they should appear as a natural result of the all the previous text in this chapter, i.e. the reader shall with ease understand that these are natural and well justified research questions. The reader shall NOT have to read between the lines and make interpretations in order to understand the choice of research questions.
+In order to fulfil the purpose, you have defined X research questions.
+
+Discuss and argue for the first research question and hence, the study's first research questions is:
+
+1. XXX
+
+Discuss and argue for the second research question and hence, the study's second research questions is: 
+
+2. XXX
+
+Discuss and argue for the third research question and hence, the study's third research questions is:
+
+3. XXX
+}
+
+
+\medskip
+The purpose is to compute the correct sum of terms which means avoiding the race condition problem. Using the APA citation model (\cite{apaju2024}), you can cite a reference in different ways:
+
+\citeauthor{flanagan2001}, \citeyear{flanagan2001};
+
+\autocite[compare to][3]{flanagan2001},
+
+\parencite{flanagan2001},
+
+\textcite[5]{flanagan2001}.
+
+
+
+\bigskip % big vertical space
+\textbf{Research Question 1:} Why use LaTeX to write my bachelor thesis?
+
+\medskip % medium vertical space
+\textbf{Research Question 2:} Is there a more advanced text processor than LaTeX?
+ 
+
+\section{Scope and Limitations}
+
+\textcolor{jupurple}{
+Here you should fill in the gaps concerning the purpose and research questions by describing what the study entails, and even more importantly, what the study does NOT entail. Keep in mind that a thorough and coherent problem statement section will result in less need for delimitations. 
+Figure X: The scope and delimitations of the study
+}
+
+\medskip
+In this study, \gls{linux} will be used as the preferred Operating Systems. No other OS will be used: no \gls{windows}, no MacOS. This paragraph gives an example of the use of the glossary, please look at the LaTeX source code.
+
+If we need to have two columns text, we can do it as well (but it is not mandatory). So nice!
+
+\begin{multicols}{2}
+  \lipsum[1]
+
+  \lipsum[1]
+
+  \lipsum[1]
+\end{multicols}
+
+
+\section{Disposition}
+
+\textcolor{jupurple}{
+Describe how the remainder of the report is structured, that is to briefly explain how the report is organized to help the reader gain an idea of the structure of the report.
+}
+
+\medskip
+The document is divided in multiple chapters. Section \ref{sec:method} describes the method and implementation of the work. In section \ref{sec:theory}, the theoretical framework of this study is detailed.
+
+\dots
+
+
+%%%
+%%% METHOD AND IMPLEMENTATION
+%%%
+\chapter{Method and Implementation}
+\label{sec:method}
+
+\textcolor{jupurple}{
+This chapter should describe and motivate the work process for this study. This is done through describing and motivating the approach and design, methodological considerations and well justified decisions concerning the study. In addition to this the chapter shall also describe how the data collection and data analysis has been conducted. The chapter ends up with a description of how to secure validity (validation) and reliability (credibility) in the study.
+The chapter should also describe and motivate what kind of study you have conducted, i.e., a case study or an experimental study, as well as if it is qualitative and/or quantitative and what it entails in terms of interviews, surveys, design, observation etc. 
+Some problems are suitable to investigate through a qualitative or quantitative study but in many cases a combination is to prefer.
+}
+
+\section{Data collection}
+
+\textcolor{jupurple}{
+This section you should describe and justify the methods for data collection that you have used in order to answer the research questions. For each research question you can write a paragraph where you argue for your choice of method in a systematic way based on the scientific method literature (method references). 
+Describe how you have performed your research, i.e., what and how have you done to answer your research questions. In this context you should describe how you have conducted your interviews, equipment that you used, experiments that you have conducted etc. in order to collect your data. Be thorough in your descriptions since it will affect the assessment of validity and reliability.
+}
+
+\medskip
+There is no real data collection in this example document because we compute the value of $\pi$ using a formula.
+
+However, we can include some programming code to show an example here:
+
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+
+int main() {
+  printf("Hello World!\n");
+  return 0;
+}
+\end{lstlisting}
+
+\section{Data Analysis}
+
+\textcolor{jupurple}{
+In this section you should describe and justify your chosen analysis method(s). Be careful in describing how you have conducted the analysis of your collected data. Be thorough here in your descriptions since this also will affect the assessment of validity and reliability.
+}
+
+\medskip\lipsum[1]
+
+\section{Validity and Reliability}
+
+\textcolor{jupurple}{
+Validity and reliability are a very important goals for an academic thesis! Validity and reliability mean to make, describe and justify decisions related to method for data collection, method for analysis, choice of theories etc. It is about convincing the reader to believe in what you have done.
+Validity is an important requirement on different methods for data collection and data analysis. If for instance the survey doesn’t measure what it is intended to do as a result of that the survey questions aren’t enough elaborated and exhaustive, then it doesn’t matter if the actual execution has been perfect.
+Reliability is also an important requirement on choice of methods. This mean that the instrument use for measuring (survey) should deliver reliable results. Others who make the same study shall reach the same results and conclusions if they use the same instrument. Choice of methods should be independent of the researcher but dependent of the degree of generalization in order to have high reliability
+}
+
+\medskip
+We can use lists in LaTeX to enumerate elements:
+
+\begin{itemize}
+  \item Linux
+  \item MacOS
+  \item Windows
+  \item FreeRTOS
+  \item\dots
+\end{itemize}
+
+We can also enumerate elements:
+
+\begin{enumerate}
+  \item Linux
+  \item MacOS
+  \item Windows
+  \item FreeRTOS
+  \item\dots
+\end{enumerate}
+
+\section{Considerations}
+
+\textcolor{jupurple}{
+This section should describe and justify relevant considerations that you have done related to your study. Typical considerations could be scientific, societal, environmental, ethic, sustainability etc. An important consideration in itself is to decide upon which considerations that are relevant for your study. Then you can describe these considerations that are relevant for your study.
+}
+
+
+%%%
+%%% THEORETICAL FRAMEWORK
+%%%
+\chapter{Theoretical Framework}
+\label{sec:theory}
+
+\textcolor{jupurple}{
+Based on your review of “state of the art” (current literature) in the problem statement as well as the developed research questions and purpose, you identify relevant sources/theories that further needs to be addressed to achieve stipulated learning outcomes. The framework is for instance used as a base to generate interview guides, survey questions etc. The framework also serves as a base for the analysis where you let your results from the empirical work meet the results from your theoretical work. 
+In this chapter it is suitable to put forward argument that not only describes different theories but also compares and evaluate them depending on how they will be used in the thesis work. It is important that you refer to all sources used in this chapter according to established rules for referencing (The APA system).
+}
+
+\medskip
+We can find information about Biomedical images in \parencite{5464359} and about the Local Dissimilarity Map in \parencite{9928253}.
+
+The full program to run the computation of $\pi$ is given below. It is an external file that is read and added to the document.
+
+\lstinputlisting[language=C]{code/math-threads.c}
+
+
+
+%%%
+%%% RESULTS
+%%%
+\chapter{Results}
+\label{sec:results}
+
+\textcolor{jupurple}{
+A chapter about results is often divided into two sections, 1) presentation of collected data and 2) data analysis.
+In the first section the collected data should be presented in an objective and coherent way without personal interpretations, views and evaluations.
+In the second section, the actual data analysis is presented. This means that the works procedure of the data analysis that previously was presented in the method chapter is populated with content. The collected data is put through the analysis process. The result from this data analysis should generate results that answers your research questions and fulfils your purpose.
+}
+
+
+\section{Presentation of Collected Data}
+
+In the result, we can have a table (see table \ref{tab:termsandpi}) that describes the data:
+
+\begin{table}[ht!]
+\centering
+\label{tab:termsandpi}
+\begin{tabular}{ccc}
+\mytoprule
+Number of terms & Time (sec.) & Approximation of $\pi$\\
+\hline
+1 000 000 & 0.03 & 3.140043\\
+10 000 000 & 0.27 & 3.1411012\\
+100 000 000 & 2.42 & 3.141528\\
+1 000 000 000 & 21.07 & 3.141591\\
+\mybottomrule
+\end{tabular}
+\caption{The computation of $\pi$ for a certain number of terms, the duration in time, and the obtained approximation.}
+\end{table}
+
+\medskip\lipsum[1]
+
+\section{Data Analysis}
+
+In LaTeX, you can include images from PNG, JPG, etc. file formats. You can also references the images with label and ref, please see figure \ref{fig:htop}.
+
+\begin{figure}[ht!]
+  \label{fig:htop}
+  \centering % we center the figure in the page
+  \includegraphics[width=0.8\textwidth]{img/htop.png}
+  \caption{The htop command in Linux.}
+\end{figure}
+
+\medskip\lipsum[3]
+
+%%%
+%%% DISCUSSION
+%%%
+\chapter{Discussion}
+\label{sec:discussion}
+
+\textcolor{jupurple}{
+In this chapter you are supposed to discuss the results of the study in relation to previous preformed studies. Furthermore, this chapter is supposed to discuss implications of the study and limitations.
+}
+
+\section{Result Discussion}
+
+\textcolor{jupurple}{
+In this section you are supposed to discuss your results from the analysis and evaluate them in relation to your purpose and research questions. You are supposed to reflect over your results in terms of, why did you end in precisely these results, how do these results relate to what other researchers has found compared to your theoretical background.
+A tip for a useful structure in this section that also can cater for a read thread is to start with a repetition of your purpose and research questions. In this way you will help both yourself and the reader – it helps you to secure that you really are answering your research questions and that you are fulfilling your purpose. It will also help the reader to understand and to follow your line of presenting and arguing.
+}
+
+\medskip\lipsum[1]
+
+\section{Method Discussion}
+
+\textcolor{jupurple}{
+In this section you should discuss your choice of methods and the execution in terms of strengths and weaknesses. Discuss to what degree you have fulfilled your purpose and to what degree you have answered your research questions based on your choice of methods. What worked well and what didn’t work so well? Are there things that you have done differently? To what degree have you achieved the requirements on validity and reliability?
+}
+
+\medskip\lipsum[1]
+
+
+%%%
+%%% CONCLUSION AND FURTHER RESEARCH
+%%%
+\chapter{Conclusion and Further Research}
+\label{sec:conclusion}
+
+\textcolor{jupurple}{
+This chapter should present the conclusions from your study and suggestions for further research.
+}
+
+\section{Conclusions}
+
+\textcolor{jupurple}{
+Make a clear backcheck of your problem statement and describe possible implications of your study. In what way is your study contributing to your problem statement.
+}
+
+\medskip
+I hope this LaTeX template will bne used by many students to write their bachelor thesis.
+
+\subsection{Practical implications}
+
+\textcolor{jupurple}{
+What possible practical implications can your result have on the industry, the public sector and/or society?
+}
+
+\subsection{Scientific implication}
+
+\textcolor{jupurple}{
+What possible scientific implications can your result have on the scientific community?
+}
+
+\section{Further Research}
+
+\textcolor{jupurple}{
+Give some suggestions on how it would be possible to continue with new research based on your results and conclusions.
+}
+
+\medskip
+What will we do next?\dots
+
+\medskip\lipsum[1]
+
+%%%
+%%% REFERENCES
+%%%
+\newpage
+\printbibliography
+
+
+%%%
+%%% ACRONYMS & GLOSSARY
+%%% 
+\newpage
+
+%\printglossary[type=\acronymtype]
+
+\printglossaries
+
+
+%%%
+%%% APPENDICES
+%%%
+\newpage
+
+\chapter{Appendices}
+
+This is an appendix were you can add several resources\dots
+
+\medskip
+\lipsum[1]
+
+
+%%%
+%%% LIST OF TABLES
+%%%
+\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+
+
+
+%%%
+%%% LIST OF FIGURES
+%%%
+\newpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+
+
+
+%%%
+%%% FINAL PAGE
+%%% 
+\newpage
+{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor=center] at (current page.center) {\includegraphics[width=21cm]{img/fond2.png}};
+  \end{tikzpicture}  
+}
+
+
+
+
+
+
+
+
+\end{document}
+
+  
+%%%-----
+%%%
+%%% END DOCUMENT
+%%%
+%%%-----
+
+
+
+
+
+
+%%%
+%%% VERSIONS
+%%%
+
+% v1.6 - published 2025-01-08
+% Changed h! to ht! to avoid constraints on figure and table placement
+
+% v1.5 - published 2024-12-17
+% Modified the chapter numbers to be jupurple color and bigger
+% Changed the text size for the chapter titles
+% Removed the circle around these chapter numbers
+
+% v1.4 - published 2024-12-17
+% Modified the text to be justified (no more \raggedright)
+% Modified the font to be Serif (more professional rendering)
+% Modified the figure caption to be at the bottom of the figure
+% Changed the tabular hline width top and bottom
+
+% v1.3 - published 2024-12-13
+% Modified the text to be \raggedright
+
+% v1.2 - published 2024-12-12
+% Modified the chapter text to small capitals
+% Changed the abstract and keywords presentation
+% Added the indentfirst package
+% Corrected the table of content bug with hyperref page references using phantom
+
+% v1.1 - published 2024-12-12
+% Changed the abstract and keywords presentation
+% Added texts and modified the structure of the document
+% Solved a page numbering problem
+% Changed the code styling
+
+% v1.0 - published 2024-12-11
+% Styles and main content are present
+
